@@ -3,7 +3,7 @@ Feature: Testing hotels.com homepage
 
     @TC-17
     Scenario: Verify past dates and back button on Current month's calendar is disabled
-      Given I am on Hotels.com
+     Given I am on Hotels.com
       When I Click on Dates
       And I Go to current month if not displayed
       Then I Verify For current month Past dates if any are disabled
@@ -27,10 +27,10 @@ Feature: Testing hotels.com homepage
 
     @TC-23
     Scenario: Verify filter-by and sort-by functionality works as expected
-      Given I Launch Hotels.com
+      Given I am on Hotels.com
       When I Search Manhattan, NY
       And I Enter Check-in date as Jan-10-2023
-      And I Enter Check-in date as Jan-23-2023
+      And I Enter Check-out date as Jan-23-2023
       When I Click on Search button
       And I Click on 5 star from star-rating filter
       And I Select “Price” from sort-by dropdown
@@ -41,7 +41,7 @@ Feature: Testing hotels.com homepage
 
     @TC-29
     Scenario: Verify "List your Property" flow
-        Given I Go to Hotels.com
+        Given I am on Hotels.com
         When I Click on “List your property”
         Then I Verify What would you like to list is displayed
         And I Verify “Lodging“ and “Private residence“ options are displayed
@@ -53,11 +53,11 @@ Feature: Testing hotels.com homepage
         And I Click on “Next” button
         Then I Verify ”Step 2 of 3” is displayed
         And I Verify Where is your property located is displayed
-        And I Enter “121” in address
+        When I Enter “121” in address
         And I Select “1211 6th Avenue, New York, NY, USA” from auto-suggestion
         Then I Verify graph is displayed
         And I Verify pin in graph is displayed
-        Then I Verify “Pin location may not be exact.“ is displayed below graph
+        And I Verify “Pin location may not be exact.“ is displayed below graph
 
 
 
@@ -76,9 +76,10 @@ Feature: Testing hotels.com homepage
         Given I am on Hotels.com
         When I Click on “English“ language
         And I Select “Español ,Estados Unidos” in Language dropdown
-        When I Click on “Save“ button
+        And I Click on “Save“ button
         Then I Verify “Español” is displayed
         And I Click on “Español“ language
         And I Select “English ,United States” in Language dropdown
         And I Click on “Guardar“ button
         Then I Verify “English” is displayed
+        

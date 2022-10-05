@@ -42,6 +42,11 @@ class Commands {
         await element.click();
     }
 
+    async scrollToElement(locator){
+        const element = await this.findWebElement(locator);
+        await element.scrollIntoView();
+    }
+
     /**
      * Generic function to type a webElement
      * Input: locator, data
